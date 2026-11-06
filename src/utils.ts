@@ -454,7 +454,7 @@ export function trackLabel(
   lookup: (path: string) => unknown,
 ): string {
   if (context === selfContext) {
-    return 'Own Ship'
+    return contextName(context, lookup) ?? 'Own Ship'
   }
   const identity = contextName(context, lookup) ?? unwrapString(lookup(`${context}.mmsi`)) ?? mmsiFromContext(context)
   return identity === undefined ? context : `AIS ${identity}`

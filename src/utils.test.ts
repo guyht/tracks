@@ -308,6 +308,12 @@ describe('trackLabel', () => {
   const OTHER = 'vessels.urn:mrn:imo:mmsi:244813000'
   const none = () => undefined
 
+  it('names the own vessel with its real name, unwrapping and trimming values', () => {
+    expect(trackLabel(SELF, SELF, (p: string) => (p === `${SELF}.name` ? 'Paloma' : undefined))).toBe('Paloma')
+    expect(trackLabel(SELF, SELF, () => ({ value: ' Paloma ' }))).toBe('Paloma')
+    expect(trackLabel(SELF, SELF, () => '   ')).toBe('Own Ship')
+  })
+
   it('names the own vessel Own Ship', () => {
     expect(trackLabel(SELF, SELF, none)).toBe('Own Ship')
   })
