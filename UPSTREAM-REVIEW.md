@@ -25,3 +25,7 @@ not a claim of passing CI, deployment readiness or completed hardware validation
 
 Keep boat identity, credentials, live data, custom release suffixes and deployment
 scripts out of an upstream submission. Publish nothing to the parent until approved.
+
+## Preparation results — 6 November 2026
+
+Fresh local validation on Node 26.12.1: npm ci, upstream typecheck and npm test succeeded; 1,320 tests passed and 6 were skipped. The candidate includes the vessel-name regression.
